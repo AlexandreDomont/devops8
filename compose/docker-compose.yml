@@ -1,0 +1,24 @@
+version: "3.9"
+    
+services:
+
+  wordpress:
+    container_name: devops8 
+    image: devops8
+    ports:
+      - 220:222
+      - 8888:80    
+
+    volumes:
+      - ./docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+
+    networks:
+      - proxy
+
+volumes:
+  devops8_db: {}
+
+networks:
+  proxy:
+    name: proxy
+
